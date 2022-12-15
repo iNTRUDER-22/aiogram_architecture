@@ -1,5 +1,11 @@
 async def on_startup(dp):
 
+    import middlewares
+    import Filters
+    Filters.setup(dp)
+
+    middlewares.setup(dp)
+
     from utils.notify_admins import on_startup_notify
     await on_startup_notify(dp)
     print('Бот запущен')
